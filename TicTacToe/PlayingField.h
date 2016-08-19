@@ -10,7 +10,7 @@ public:
 	std::vector<std::vector<char>> m_playing_field;
 	PlayingField();
 	void drawField();
-	void updateSquare(int x, int y, char piece);
+	bool updateSquare(int x, int y, char piece);
 
 };
 

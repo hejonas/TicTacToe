@@ -47,7 +47,7 @@ int main()
 		cin >> move[0];
 		cout << "y: ";
 		cin >> move[1];
-
+	
 		playingField.updateSquare(move[0], move[1], 'o');
 
 		system("cls");

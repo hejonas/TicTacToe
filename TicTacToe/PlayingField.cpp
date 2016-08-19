@@ -23,9 +23,17 @@ void PlayingField::drawField()
 	
 }
 
-void PlayingField::updateSquare(int x, int y, char piece)
+bool PlayingField::updateSquare(int x, int y, char piece)
 {
 	m_numOfPieces++;
-	m_playing_field[x][y] = piece;
+	if (m_playing_field[x][y] == 0) {
+		m_playing_field[x][y] = piece;
+
+		return true;
+	}
+	else {
+		return false;
+	}
+	
 }
 
