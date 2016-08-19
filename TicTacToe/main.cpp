@@ -13,22 +13,52 @@ int main()
 {
 	PlayingField playingField = PlayingField();
 	Player player1 = Player();
+	Player player2 = Player();
 	GameLogics logics = GameLogics();
 
-	playingField.drawField();
-
-	player1.setVictories(1);
-
-	system("pause");
-	system("cls");
-
-	playingField.updateSquare(0, 0, 'x');
-	playingField.updateSquare(1, 1, 'x');
-	playingField.updateSquare(2, 2, 'x');
+	int move[2];
 
 	playingField.drawField();
 
-	cout << logics.isVictory(playingField.m_playing_field) << endl;
+
+	while (true) {
+
+		cout << "Player X's turn!" << endl;
+		cout << "Enter your coordinates" << endl;
+		cout << "x: ";
+		cin >> move[0];
+		cout << "y: ";
+		cin >> move[1];
+
+		playingField.updateSquare(move[0], move[1], 'x');
+
+		system("cls");
+
+		playingField.drawField();
+
+		if (logics.isVictory(playingField.m_playing_field)) {
+			cout << "VICTORY for player X!" << endl;
+			break;
+		}
+
+		cout << "Player O's turn!" << endl;
+		cout << "Enter your coordinates" << endl;
+		cout << "x: ";
+		cin >> move[0];
+		cout << "y: ";
+		cin >> move[1];
+
+		playingField.updateSquare(move[0], move[1], 'o');
+
+		system("cls");
+
+		playingField.drawField();
+
+		if (logics.isVictory(playingField.m_playing_field)) {
+			cout << "VICTORY for player Y!" << endl;
+			break;
+		}
+	}
 	
 	system("pause");
 
